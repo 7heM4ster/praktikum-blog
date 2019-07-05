@@ -10,7 +10,7 @@ permalink: /blog/
 		<article class="article">
 			<h3>{{ post.title }}</h3>
 			<p>{{ post.excerpt }}</p>
-			<a href="{{ post.url }}">mehr</a>
+			<a href="{{ post.url | relative_url }}">mehr</a>
 		</article>
     </li>
   {% endfor %}

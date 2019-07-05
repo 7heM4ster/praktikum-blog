@@ -1,7 +1,7 @@
 <header class='header'>
 	
 	<div class="title  focus-in-expand">
-		 <a href='/'>
+		 <a href='{{ "/" | relative_url }}'>
 			<span class='title--top'>Praktikumswochen</span><br>
 			<strong class='title--bottom'>Bei Hinderling Volkart</strong>
 		 </a>
@@ -9,9 +9,9 @@
 				  
 	<nav>
 		<ul class="navigation--list" class="focus-in-expand">
-			<li class="navigation--list--item"><a href='/about'>About</a></li>
+			<li class="navigation--list--item"><a href='{{ "/about" | relative_url }}'>About</a></li>
 			<!-- <li class="navigation--list--item"><a href='/blog'>Blog</a></li> -->
-			<li class="navigation--list--item"><a href='/'>Home</a></li>
+			<li class="navigation--list--item"><a href='{{ "/" | relative_url }}'>Home</a></li>
 		</ul>
 	</nav>
 	

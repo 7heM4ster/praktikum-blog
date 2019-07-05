@@ -7,7 +7,7 @@ layout: default
 <div class="row">
   <div class="leftcolumn">
       {% for post in site.posts %}
-          <a class="card has-hovereffect" href="{{ post.url }}">
+          <a class="card has-hovereffect" href="{{ post.url | relative_url }}">
             <div>
               <h2 class="post--title">{{ post.title }}</h2>
               <p>{{ post.date | date_to_long_string }}</p>
@@ -22,12 +22,12 @@ layout: default
     <div class="card">
       <h2 class="card--title">Ich</h2>
       <div>
-        <a href="/about">
-          <img class="author" src="/assets/images/portrait.jpg" alt="author" width="200">
+        <a href="{{ "/about" | relative_url }}">
+          <img class="author" src="{{ "/assets/images/portrait.jpg" | relative_url }}" alt="author" width="200">
         </a>
       </div>
       <div class="tracking-in-expand textCenter">
-        <a href="/about">Über mich</a>
+        <a href="{{ "/about" | relative_url }}">Über mich</a>
       </div>
     </div>
 
@@ -37,7 +37,7 @@ layout: default
         <div>
           <p class="card-newsletter">Sei der erste, der von einem neuen Post erfährt!</p>
         </div>
-        <form action="/action_page.php" > <!-- PHP plugin -->
+        <form action="{{ "/404" | relative_url }}" > <!-- PHP plugin -->
           <input class="mail" type="text" name="Mailaddresse" placeholder="me@example.com">
           <button class="button" type="submit">Submit</button>
        </form>
@@ -50,22 +50,22 @@ layout: default
           <ul class="card-social_media_list-shareicons">
             <li class="card-social_media_list-shareicons-list">
               <a href=https://www.twitter.com/>
-                <img src="/assets/images/twitterIcon.png" alt="Twitter" width="25">
+                <img src="{{ "/assets/images/twitterIcon.png" | relative_url }}" alt="Twitter" width="25">
               </a>
             </li>
             <li class="card-social_media_list-shareicons-list">
               <a href=https://www.facebook.com/>
-                <img src="/assets/images/facebookicon.png" alt="Facebook" width="25">
+                <img src="{{ "/assets/images/facebookicon.png" | relative_url }}" alt="Facebook" width="25">
               </a>
             </li>
             <li class="card-social_media_list-shareicons-list">
               <a href=https://www.pinterest.com/>
-                <img src="/assets/images/pinterestIcon3.png" alt="Pinterest" width=25>
+                <img src="{{ "/assets/images/pinterestIcon3.png" | relative_url }}" alt="Pinterest" width=25>
               </a>
             </li>
             <li class="card-social_media_list-shareicons-list">
               <a href=https://www.instagram.com/>
-                <img src="/assets/images/instagramIcon4.png" alt="Instagram" width="25">
+                <img src="{{ "/assets/images/instagramIcon4.png" | relative_url }}" alt="Instagram" width="25">
               </a>
             </li>
           </ul>
