@@ -1,0 +1,75 @@
+---
+layout: default
+---
+
+<h1>{{ page.title }}</h1>
+
+<div class="row">
+  <div class="leftcolumn">
+      {% for post in site.posts %}
+          <a class="card has-hovereffect" href="{{ post.url }}">
+            <div>
+              <h2 class="post--title">{{ post.title }}</h2>
+              <p>{{ post.date | date_to_long_string }}</p>
+              <p>{{post.excerpt }}</p>
+              <div class="tracking-in-expand">mehr</div>
+            </div>
+          </a>
+      {% endfor %}
+  </div>
+  
+  <div class="rightcolumn">
+    <div class="card">
+      <h2 class="card--title">Ich</h2>
+      <div>
+        <a href="/about">
+          <img class="author" src="/assets/images/portrait.jpg" alt="author" width="200">
+        </a>
+      </div>
+      <div class="tracking-in-expand textCenter">
+        <a href="/about">Über mich</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-newsletter">
+        <h2 class="card--title">Newsletter abonnieren</h2>
+        <div>
+          <p class="card-newsletter">Sei der erste, der von einem neuen Post erfährt!</p>
+        </div>
+        <form action="/action_page.php" > <!-- PHP plugin -->
+          <input class="mail" type="text" name="Mailaddresse" placeholder="me@example.com">
+          <button class="button" type="submit">Submit</button>
+       </form>
+    </div>
+
+    </div>
+      <div class="card">
+        <div class="card-social_media_list">
+          <h2 class="card--title">Share the love</h2>
+          <ul class="card-social_media_list-shareicons">
+            <li class="card-social_media_list-shareicons-list">
+              <a href=https://www.twitter.com/>
+                <img src="/assets/images/twitterIcon.png" alt="Twitter" width="25">
+              </a>
+            </li>
+            <li class="card-social_media_list-shareicons-list">
+              <a href=https://www.facebook.com/>
+                <img src="/assets/images/facebookicon.png" alt="Facebook" width="25">
+              </a>
+            </li>
+            <li class="card-social_media_list-shareicons-list">
+              <a href=https://www.pinterest.com/>
+                <img src="/assets/images/pinterestIcon3.png" alt="Pinterest" width=25>
+              </a>
+            </li>
+            <li class="card-social_media_list-shareicons-list">
+              <a href=https://www.instagram.com/>
+                <img src="/assets/images/instagramIcon4.png" alt="Instagram" width="25">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </div>
+</div>

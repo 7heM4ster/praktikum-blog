@@ -1,0 +1,19 @@
+---
+layout: page
+title: Blog
+permalink: /blog/
+---
+
+<ul style="list-style-type: none">
+  {% for post in site.posts %}
+    <li class="card">
+		<article class="article">
+			<h3>{{ post.title }}</h3>
+			<p>{{ post.excerpt }}</p>
+			<a href="{{ post.url }}">mehr</a>
+		</article>
+    </li>
+  {% endfor %}
+</ul>
+
+

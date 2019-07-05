@@ -1,0 +1,347 @@
+@import "helpers/colors";
+@import "helpers/mediaqueries";
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+.textCenter{
+  text-align: center
+}
+
+/* Cool infinite background scrolling animation.
+ * Twitter: @kootoopas
+ */
+
+/* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+$bg-url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC";
+$bg-width: 50px;
+$bg-height: 50px;
+
+/* Animations */
+@-webkit-keyframes bg-scrolling-reverse {
+  100% { background-position: $bg-width $bg-height; }
+}
+@-moz-keyframes    bg-scrolling-reverse {
+  100% { background-position: $bg-width $bg-height; }
+}
+@-o-keyframes      bg-scrolling-reverse {
+  100% { background-position: $bg-width $bg-height; }
+}
+@keyframes         bg-scrolling-reverse {
+  100% { background-position: $bg-width $bg-height; }
+}
+
+@-webkit-keyframes bg-scrolling {
+  0% { background-position: $bg-width $bg-height; }
+}
+@-moz-keyframes    bg-scrolling {
+  0% { background-position: $bg-width $bg-height; }
+}
+@-o-keyframes      bg-scrolling {
+  0% { background-position: $bg-width $bg-height; }
+}
+@keyframes         bg-scrolling {
+  0% { background-position: $bg-width $bg-height; }
+}
+
+/* Main styles */
+body {
+  font-family: 'Noto Sans HK', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  padding: 20px;
+  background: $c-white;
+  color: $c-black;
+  line-height: 2;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  color: $c-light;
+  /* img size is 50x50 */
+  background: url($bg-url) repeat 0 0;
+  
+  -webkit-animation: bg-scrolling-reverse 4s infinite; /* Safari 4+ */
+  -moz-animation:    bg-scrolling-reverse 4s infinite; /* Fx 5+ */
+  -o-animation:      bg-scrolling-reverse 4s infinite; /* Opera 12+ */
+  animation:         bg-scrolling-reverse 4s infinite; /* IE 10+ */
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function:    linear;
+  -o-animation-timing-function:      linear;
+  animation-timing-function:         linear;
+  
+
+  @media screen and (max-width: 800px) {
+    font-size: 1rem;
+  }
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: auto;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: $c-light;
+}
+
+
+ul{
+  margin: 0;
+  list-style-type: none;
+  padding: 0%;
+}
+
+@import "components/header";
+@import "components/footer";
+
+
+.button {
+  border-radius: 0.5rem;
+  background-color: rgb(91, 168, 255);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19);
+  padding: 0.5rem 0.75rem;
+  border: none;
+  transition: color .2s ease-out, background-color .2s ease-out;
+
+  &:hover {
+    background-color:  #348BEF;
+    color: $c-white;
+
+
+  }
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn { 
+  float: left;
+  width: 70%;
+
+}
+
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 30%;
+  padding-left: 40px;
+}
+
+
+/* Add a card effect for articles */
+.card{
+  display: block;
+  background-color: $c-lightgrey;
+  padding: 30px 20px 30px 30px;
+  margin-top: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border-radius: 0.5rem;
+  transition: box-shadow .5s ease-out;
+
+  &.has-hovereffect:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.55), 0 6px 6px rgba(0,0,0,0.25);
+    transition: box-shadow .25s ease-out;
+  }
+}
+
+.card--title {
+  margin-top: 0;
+  margin-bottom: .5em;
+  line-height: 1.2;
+}
+
+.post--title {
+  margin-top: 0;
+  @media screen and (max-width: 800px) {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn { 
+    width: 100%;
+    padding: 0;
+  }
+}
+
+
+.images{
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-social_media_list-shareicons{
+  padding: 0%;
+  margin: 0%;
+  
+
+  img {
+    border-radius: 100%;
+  }
+}
+
+.card-social_media_list-shareicons-list{
+  display: inline;
+}
+
+.article{
+  border: 1px black;
+}
+
+.mail{
+  box-sizing: border-box;
+  height: 20px;
+  border: 1px solid $c-grey;
+  border-radius: .5rem;
+  font-size: .8rem;
+  padding: 0.8445rem .5rem;
+}
+
+.content {
+  clear: both;
+
+  .author-portrait {
+    width: 25%;
+    height: auto;
+    min-width: 150px;
+    float: right;
+    margin-left:2rem; 
+    border-radius: 50%;
+    -webkit-shape-outside:circle();
+    shape-outside:circle();
+
+    @media screen and (max-width: 800px) {
+      width: 50%;
+      float: none;
+      shape-outside: none;
+      margin-bottom: 2rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+
+.author{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 100%;
+  box-shadow: 0 0px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.author-portrait{
+  float: right;
+  display: block;
+  width: 25%;
+  border-radius: 100%;
+  box-shadow: 0 0px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  height: auto;
+  margin-left: 0%;
+}
+
+.author-description{
+  //width: 75%;
+  margin-top: 0%;
+  max-width: 100%;
+}
+
+.card-newsletter{
+  line-height: 1.4;
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+
+
+// Cursor animation in /about/
+.typing {
+  width: 155px;
+  float: left;
+  text-align: left;
+  overflow: hidden;
+  border-right: 2px solid $c-grey;
+  animation: typing .9s steps(7, end), cursor .4s steps(7, end) infinite;
+  margin-bottom: 28px;
+}
+@keyframes typing {
+  0% { width: 0; }
+  100% { width: 155px; }
+}
+
+@keyframes cursor {
+  50% { border-color: transparent }
+}
+
+// Text animation on link
+.tracking-in-expand:hover {
+	-webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+          animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+
+/* ----------------------------------------------
+ * Generated by Animista on 2019-7-3 10:25:11
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation tracking-in-expand
+ * ----------------------------------------
+ */
+ @-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}

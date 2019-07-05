@@ -1,0 +1,105 @@
+
+$mq-mobile-portrait    : 400px !default;
+$mq-mobile-narrow      : 580px !default;
+$mq-mobile             : 750px !default;
+$mq-tablet-portrait    : 1000px !default;
+$mq-tablet             : 1200px !default;
+$mq-desktop            : 1382px !default;
+
+
+
+@mixin mobile-portrait {
+	@media screen and (max-width : $mq-mobile-portrait) {
+		@content;
+	}
+}
+@mixin above-mobile-portrait {
+	@media screen and (min-width : ($mq-mobile-portrait + 1px)) {
+		@content;
+	}
+}
+
+
+
+@mixin mobile-narrow {
+	@media screen and (max-width : $mq-mobile-narrow) {
+		@content;
+	}
+}
+@mixin above-mobile-narrow {
+	@media screen and (min-width : ($mq-mobile-narrow + 1px)) {
+		@content;
+	}
+}
+
+
+
+@mixin mobile {
+	@media screen and (max-width : $mq-mobile) {
+		@content;
+	}
+}
+@mixin above-mobile {
+	@media screen and (min-width : ($mq-mobile + 1px)) {
+		@content;
+	}
+}
+
+
+
+@mixin tablet-portrait {
+	@media screen and (max-width : $mq-tablet-portrait) {
+		@content;
+	}
+}
+@mixin above-tablet-portrait {
+	@media screen and (min-width : ($mq-tablet-portrait + 1px)) {
+		@content;
+	}
+}
+
+
+
+@mixin tablet {
+	@media screen and (max-width : $mq-tablet) {
+		@content;
+	}
+}
+@mixin above-tablet {
+	@media screen and (min-width : ($mq-tablet + 1px)) {
+		@content;
+	}
+}
+
+
+
+@mixin desktop {
+	@media screen and (max-width : $mq-desktop) {
+		@content;
+	}
+}
+@mixin above-desktop {
+	@media screen and (min-width : ($mq-desktop + 1px)) {
+		@content;
+	}
+}
+
+// Retina screens have a 1.5 pixel ratio, not 2
+@mixin retina {
+	@media (min-resolution: 144dpi) {
+		@content;
+	}
+}
+@mixin not-retina {
+	@media (max-resolution: 143dpi) {
+		@content;
+	}
+}
+
+
+@mixin hover($extra: '') {
+	html:not(.can-touch) &:active#{$extra},
+	html:not(.can-touch) &:hover#{$extra} {
+		@content;
+	}
+}
